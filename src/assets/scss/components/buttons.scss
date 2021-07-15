@@ -1,0 +1,49 @@
+// Light mode buttons 
+
+.btn {
+    display: inline-block;
+
+    padding: 1.6rem 3.8rem;
+        
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    transition: 350ms ease;
+    transition-property: background-color;
+
+    @media screen and (max-width: 1023px) {
+        padding: 1.6rem 1.6rem;
+    }
+}
+
+.primary__btn--1 {
+    background-color: $primary-violet;
+    color: $secondary-white;
+
+    &:hover {
+        background-color: $primary-light-violet;
+    }
+}
+
+.primary__btn--2 {
+    background-color: $secondary-lighter-grey;
+    color: $primary-violet;
+
+    &:hover {
+        background-color: #C5C9F4;
+    }
+}
+
+.primary__btn--dark  {
+    background-color: #303642;
+    color: $secondary-white;
+
+    &:hover {
+        background-color: #696E76;
+    }
+}
