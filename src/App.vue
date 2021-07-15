@@ -14,12 +14,7 @@ export default {
 
 
 <style lang="scss">
-
-@import '@/assets/scss/global.scss';
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/components/buttons.scss';
-
-
+  @import '@/assets/scss/global.scss';
 </style>
 
 
