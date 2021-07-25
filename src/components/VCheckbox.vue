@@ -1,37 +1,31 @@
 <template>
     <div class="checkbox__container">
-        <input type="checkbox" name="fulltime" class="checkbox" v-model="isFulltime" @change="filterLocation()">
+        <input type="checkbox" name="fulltime" class="checkbox" v-model="isActive">
         <div class="check"></div>
     </div>
 </template>
 
 <script>
 
-import { mapState } from 'vuex';
-
 export default {
   name: 'VCheckbox',
+
+  props: {
+    value: {},
+  },
+
   data(){
     return {
-      isFulltime: false
+      isActive: false
     }
   },
-  methods: {
-    filterLocation(){
-        this.$store.state.filteredJobs = this.jobs.filter((job) => {
-               if (this.isFulltime) {
-                  return job.contract.match('Full Time');
-               } else {
-                 return job
-               }
-        })
+  watch: {
+    isActive(newValue) {
+      this.$emit('input', newValue);
     },
-  },
-  computed: {
-    ...mapState([
-      'jobs',
-      'filteredJobs'
-    ])
+    value(newValue) {
+      this.isActive = newValue;
+    }
   },
 }
 

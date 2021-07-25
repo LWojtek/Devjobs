@@ -2,7 +2,7 @@
   <body :class="{'dark-theme' : darkmode}">
     <VHeader />
     <transition name="fade">
-      <VModal v-if="this.$store.state.vmodal"/>
+        <VModal v-show="this.$store.state.vmodal"/>
     </transition>
     <router-view/>
 

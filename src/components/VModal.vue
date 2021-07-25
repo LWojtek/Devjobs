@@ -3,11 +3,14 @@
         <div class="modal">
             <div class="nav__searchbar--location">
                 <img src="@/assets/images/desktop/icon-location.svg" alt="">
-                <input type="text" placeholder="Filter by location... ">
+                <input 
+                    type="text" 
+                    placeholder="Filter by location... " 
+                    v-model="location">
             </div>
             <div class="nav__searchbar--checkbox">
                 <div style="display: flex; align-items: center;">
-                    <VCheckbox />
+                    <VCheckbox v-model="fullTime"/>
                     <p>Full Time <span>Only</span></p>
                 </div>    
                 <button class="btn primary__btn--1" @click="closeModal">Search</button>    
@@ -21,11 +24,22 @@
 import VCheckbox from '@/components/VCheckbox.vue';
 
     export default {
+        data(){
+            return {
+                location: '',
+                fullTime: false,
+            }
+        },
         components: {
             VCheckbox
         },
         methods: {
             closeModal(){
+                this.bus.$emit('search', {
+                    location: this.location,
+                    fullTime: this.fullTime
+                });
+
                 this.$store.state.vmodal = false;
             }
         }

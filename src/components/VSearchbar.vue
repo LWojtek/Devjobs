@@ -7,7 +7,6 @@
                 type="text" 
                 placeholder="Filter by title, companies expertise..." 
                 v-model="search" 
-                @keyup="filterJobs()"
             >
         </div>
 
@@ -17,18 +16,25 @@
                 type="text" 
                 placeholder="Filter by location... " 
                 v-model="location" 
-                @keyup="filterLocation()"
             >
         </div>
 
         <div class="col nav__searchbar--checkbox">
-            <VCheckbox />
+
+            <VCheckbox v-model="fullTime"
+            />
+
             <p>Full Time <span>Only</span></p>
-            <button class="btn primary__btn--1" >Search</button>
+            <button class="btn primary__btn--1"
+                @click="filterJobs"
+            >Search</button>
         </div>
 
 
-        <VSearchbarMobile />        
+        <VSearchbarMobile 
+            v-model="search"
+            @search="filterJobs"    
+        />        
 
     </div>
 </template>
@@ -46,6 +52,7 @@ export default {
         return {
             search: '',
             location:'',
+            fullTime: false,
         }
     },
     components: {
@@ -62,15 +69,18 @@ export default {
         filterJobs(){
             this.$store.state.filteredJobs = this.jobs.filter((job) => {
                     return job.position.toLowerCase().match(this.search.toLowerCase())
+                    && (job.location.toLowerCase().match(this.location.toLowerCase()))
+                    && (job.contract.toLowerCase().match(this.fullTime ? "full time" : "" ));
             })
         },
-        filterLocation(){
-            this.$store.state.filteredJobs = this.jobs.filter((job) => {
-                    return job.location.toLowerCase().match(this.location.toLowerCase())
-            })
-        },
-
     },
+    created(){
+        this.bus.$on('search', (searchData) => {
+            this.location = searchData.location;
+            this.fullTime = searchData.fullTime;
+            this.filterJobs();
+        })
+    } 
 
 }
 
