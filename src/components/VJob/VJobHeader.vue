@@ -3,7 +3,7 @@
         <div class="job__header--content">
             <div class="logo__container">   
                 <div class="job__header--logo" :style="`background-color: ${currentJob.logoBackground}`">
-                    <img :src="require(`@/assets/images/logos/${currentJob.logo}.svg`)" alt="">
+                    <img :src="`/images/logos/${currentJob.logo}.svg`" alt="">
                 </div>     
             </div>
             <div class="job__header--info">
