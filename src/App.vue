@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
+  <body :class="{'dark-theme' : darkmode}">
     <VHeader />
     <transition name="fade">
       <VModal v-if="this.$store.state.vmodal"/>
     </transition>
     <router-view/>
-  </div>
+
+  </body>
 </template>
 
 <script src="@/main.js"></script>
@@ -17,6 +18,11 @@ import VModal from '@/components/VModal.vue';
 import { mapState } from 'vuex';
 
 export default {
+  data(){
+    return {
+      darkmode: false,
+    }
+  },
   components: {
     VHeader,
     VModal    
@@ -25,6 +31,11 @@ export default {
     ...mapState([
       'vmodal',
     ])
+  },
+  created () {
+    this.bus.$on('darkmode', (on) => {
+      this.darkmode = on;
+    });
   },
 };
 

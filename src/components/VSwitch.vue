@@ -1,7 +1,7 @@
 <template>
     <div class="nav__switch">
         <img src="@/assets/images/desktop/icon-sun.svg" alt="">
-        <input type="checkbox" class="mode__btn" name="" id="">
+        <input type="checkbox" class="mode__btn" v-model="darkmode">
         <div class="switch">
         </div>
         <img src="@/assets/images/desktop/icon-moon.svg" alt="">
@@ -10,7 +10,16 @@
 
 <script>
     export default {
-        
+        data(){
+            return {
+                darkmode: false,
+            }
+        },
+        watch: {
+            darkmode(newVal){
+                this.bus.$emit('darkmode', newVal);
+            }
+        }
     }
 </script>
 
