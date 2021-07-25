@@ -6,13 +6,13 @@
                     <div>
                         
                         <router-link to="/">
-                            <VLogo />
+                        <VLogo />
                         </router-link>
                         <VSwitch /> 
 
                     </div>
 
-                    <VSearchbar v-if="this.id === '/'"/>
+                    <VSearchbar v-if="this.$route.fullPath === '/' "/>
                                            
                 </div>               
             </div>
@@ -34,11 +34,6 @@ import VSearchbar from '@/components/VSearchbar.vue';
             VLogo,
             VSearchbar
         },
-        data(){
-            return {
-                id: this.$route.path,
-            }
-        }
     }
 </script>
 

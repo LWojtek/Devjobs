@@ -1,7 +1,7 @@
 <template>
     <div class="nav__switch">
         <img src="@/assets/images/desktop/icon-sun.svg" alt="">
-        <input type="checkbox" name="" id="">
+        <input type="checkbox" class="mode__btn" name="" id="">
         <div class="switch">
         </div>
         <img src="@/assets/images/desktop/icon-moon.svg" alt="">
@@ -46,6 +46,7 @@
 
     input[type=checkbox]:checked ~ .switch::after {
         transform: translateX(2.4rem);
+
     }
 
     input[type=checkbox]:hover ~ .switch::after {

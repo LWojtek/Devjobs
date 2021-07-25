@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    vmodal: false,
     jobs: [
       {
         "id": 1,
@@ -501,9 +502,8 @@ export default new Vuex.Store({
           ]
         }
       }
-    ]
-  },
-  mutations: {
+    ],
+    filteredJobs: []
   },
   actions: {
   },

@@ -40,6 +40,7 @@
     margin: 0 auto;
     padding: 4rem 0rem;
 
+
     @media screen and (max-width: 767px) {
         padding-left: 2rem;
         padding-right: 2rem;
@@ -47,6 +48,7 @@
 
     &--content {
         display: flex;
+        box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.10);
         transform: translateY(-14rem);
         background: #fff;
         border-radius: 1rem;
@@ -58,6 +60,7 @@
     }
 
     .logo__container {
+
         @media screen and (max-width: 568px) {
             width: 100%;
             height: 50px;

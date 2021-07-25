@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <div class="content">
+        
             <ul class="content__wrapper">       
-
-                    <VJobcard  class="job__card" v-for="job in jobs" :key="job.id" :job="job"/>
- 
+                    <VJobcard  class="job__card" v-for="job in filterJobs" :key="job.id" :job="job"/>
             </ul>
+    
             <div class="content__load">
                 <button class="btn primary__btn--1">Load more</button>
             </div>
@@ -21,16 +21,26 @@ import { mapState } from 'vuex';
 
 import VJobcard from '@/components/VJobcard.vue';
 
+
     export default {
         name: 'VContent',
+
         components: {
-            VJobcard
+            VJobcard,
         },
         computed: {
-        ...mapState([
-            'jobs',
-        ])
-    },
+            ...mapState([
+                'jobs',
+                'filteredJobs'
+            ]),
+            filterJobs(){
+                return this.$store.state.filteredJobs
+            }
+        },
+        created() {
+            this.$store.state.filteredJobs = this.$store.state.jobs
+        }
+
     }
 </script>
 
@@ -41,6 +51,7 @@ import VJobcard from '@/components/VJobcard.vue';
 .content {
     padding: 8rem 16.5rem;
     margin: 0 auto;
+
 
     
     @media screen and(max-width: 1440px) {
@@ -67,3 +78,5 @@ import VJobcard from '@/components/VJobcard.vue';
 }
 
 </style>
+
+

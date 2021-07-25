@@ -73,9 +73,25 @@
         background: #fff;
         border-radius: 1rem;
         padding: 4rem;
+        box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.10);
 
         @media screen and (max-width: 568px){
             padding: 2rem;
+        }
+
+        &.dark-theme {
+            background-color: $primary-dark-blue;
+        }
+        &.light-theme {
+            background-color: $secondary-white;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-color: $primary-dark-blue;
+        }
+
+        @media (prefers-color-scheme: light) {
+            background-color: $secondary-white;
         }
 
         >div {

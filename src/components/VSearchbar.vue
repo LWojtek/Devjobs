@@ -1,38 +1,79 @@
 <template>
-    <div class="nav__searchbar">
+    <div class="nav__searchbar" id="nav__searchbar">
+
         <div class="col nav__searchbar--search">
             <img src="@/assets/images/desktop/icon-search.svg" alt="">
-            <input type="text" placeholder="Filter by title, companies expertise...">
+            <input 
+                type="text" 
+                placeholder="Filter by title, companies expertise..." 
+                v-model="search" 
+                @keyup="filterJobs()"
+            >
         </div>
+
         <div class="col nav__searchbar--location">
             <img src="@/assets/images/desktop/icon-location.svg" alt="">
-            <input type="text" placeholder="Filter by location... ">
+            <input 
+                type="text" 
+                placeholder="Filter by location... " 
+                v-model="location" 
+                @keyup="filterLocation()"
+            >
         </div>
+
         <div class="col nav__searchbar--checkbox">
             <VCheckbox />
             <p>Full Time <span>Only</span></p>
-            <button class="btn primary__btn--1">Search</button>
+            <button class="btn primary__btn--1" >Search</button>
         </div>
 
 
-        <VSearchbarMobile />
-
-
+        <VSearchbarMobile />        
 
     </div>
 </template>
 
 <script>
 
-    import VCheckbox from '@/components/VCheckbox.vue';
-    import VSearchbarMobile from '@/components/VSearchbarMobile.vue';
+import { mapState } from 'vuex';
 
-    export default {
-        components: {
-            VCheckbox,
-            VSearchbarMobile
+import VCheckbox from '@/components/VCheckbox.vue';
+import VSearchbarMobile from '@/components/VSearchbarMobile.vue';
+
+
+export default {
+    data(){
+        return {
+            search: '',
+            location:'',
         }
-    }
+    },
+    components: {
+        VCheckbox,
+        VSearchbarMobile,
+    },
+    computed: {
+        ...mapState([
+            'jobs',
+            'filteredJobs'
+        ]),
+    },
+    methods: {
+        filterJobs(){
+            this.$store.state.filteredJobs = this.jobs.filter((job) => {
+                    return job.position.toLowerCase().match(this.search.toLowerCase())
+            })
+        },
+        filterLocation(){
+            this.$store.state.filteredJobs = this.jobs.filter((job) => {
+                    return job.location.toLowerCase().match(this.location.toLowerCase())
+            })
+        },
+
+    },
+
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -41,11 +82,13 @@
 
 // Desktop searchbar
 
+
 .nav__searchbar {
     display: flex;    
     max-height: 8rem;
     flex-grow: 1;
     border-radius: 1rem;
+    animation: shadow 100ms forwards;
     box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.10);
 
 
@@ -58,6 +101,27 @@
         font-family: 'Kumbh Sans', sans-serif;
         font-size: 1.7rem;
         padding-top: 0.5rem;
+
+        @media (prefers-color-scheme: light) {
+            background-color: $secondary-white;
+            color: #000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-color: $primary-dark-blue;
+            color: #fff;
+        }
+
+        &.dark-theme {
+            background-color: $primary-dark-blue;
+             color: #fff;
+        }
+
+        
+        &.light-theme {
+            background-color: $secondary-white;
+            color: #000;
+        }
     }
 
     &--search,
@@ -104,8 +168,26 @@
             font-weight: bold;
             padding-top: 0.5rem;
 
+        @media (prefers-color-scheme: light) {
+            color: #000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: #fff;
+        }
+
+        &.dark-theme {
+             color: #fff;
+        }
+
+        
+        &.light-theme {
+            color: #000;
+        }
+
+
             span {
-                @media screen and (max-width: 767px) {
+                @media screen and (max-width: 880px) {
                     display: none;
                 }
             }
@@ -119,6 +201,22 @@
 
 .col {
     background: #fff;
+    
+    &.dark-theme {
+        background-color: $primary-dark-blue;
+    }
+
+    &.light-theme {
+        background-color: $secondary-white;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        background-color: $primary-dark-blue;
+    }
+
+    @media (prefers-color-scheme: light) {
+        background-color: $secondary-white;
+    }
 
     @media screen and (max-width: 660px) {
         display: none;

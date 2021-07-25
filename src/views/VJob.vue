@@ -1,7 +1,5 @@
 <template>
     <div>
-        <VHeader />
-
         <div class="container">
 
             <VJobHeader :currentJob="this.currentJob" />
@@ -17,7 +15,6 @@
 
 <script>
 
-import VHeader from '@/components/VHeader.vue';
 import VJobHeader from '@/components/VJob/VJobHeader.vue';
 import VJobBody from '@/components/VJob/VJobBody.vue';
 import VJobFooter from '@/components/VJob/VJobFooter.vue';
@@ -28,7 +25,6 @@ import { mapState } from 'vuex'
     export default {
         name: 'VJob',
         components: {
-            VHeader,
             VJobHeader,
             VJobBody,
             VJobFooter,
@@ -57,5 +53,6 @@ import { mapState } from 'vuex'
 <style lang="scss" scoped>
 
 @import '@/assets/scss/variables.scss';
+
 
 </style>

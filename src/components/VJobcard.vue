@@ -1,5 +1,6 @@
 <template>
     <router-link :to="`/${job.id}`" style="text-decoration: none; color: inherit">
+
         <div class="job__card--logo" :style="`background-color: ${job.logoBackground}`">
             <img :src="require(`@/assets/images/logos/${job.logo}.svg`)" alt class="icon" />
         </div>
@@ -8,7 +9,7 @@
                 <span>{{ job.postedAt }}</span>
                 <span>*</span>
                 <span>{{ job.contract }}</span>
-            </div>
+            </div> 
 
             <h4>{{ job.position }}</h4>
 
@@ -16,10 +17,12 @@
 
             <p>{{ job.location }}</p>
         </div>
+
     </router-link>
 </template>
 
 <script>
+    
     export default {
         name: 'VJobcard',
         props: [
@@ -47,7 +50,28 @@ ul li {
     padding: 4.9rem 3.2rem 3.2rem;
     border-radius: 1rem;
     cursor: pointer;
-    transition: box-shadow 250ms ease;
+    transition: box-shadow 350ms ease;
+    z-index: 0 !important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
+
+
+    &.light-theme {
+        background-color: $secondary-white;
+    }
+
+    @media (prefers-color-scheme: light) {
+        background-color: $secondary-white;
+    }
+
+    
+    &.dark-theme {
+        background-color: $primary-dark-blue;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: $primary-dark-blue;
+    }
+
 
     @media screen and (max-width: 375px) {
         
@@ -96,6 +120,24 @@ ul li {
     h4 {
         margin-top: 2rem;
         margin-bottom: 2.5rem;
+
+            
+        &.dark-theme {
+            color: $secondary-white;
+        }
+
+        &.light-theme {
+            color: #000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            color: $secondary-white;
+        }
+
+        @media (prefers-color-scheme: light) {
+            color: #000;
+        }
+
     }
 
     span {
