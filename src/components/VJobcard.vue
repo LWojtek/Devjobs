@@ -31,13 +31,17 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import '@/assets/scss/variables.scss';
 
 
 ul li {
     list-style-type: none;
+}
+
+.dark-theme .job__card{
+
 }
 
 .job__card {
@@ -54,17 +58,13 @@ ul li {
     z-index: 0 !important;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
 
-
-    &.light-theme {
-        background-color: $secondary-white;
-    }
+    background-color: $secondary-white;
 
     @media (prefers-color-scheme: light) {
         background-color: $secondary-white;
     }
 
-    
-    &.dark-theme {
+    .dark-theme & {
         background-color: $primary-dark-blue;
     }
 
@@ -120,14 +120,12 @@ ul li {
     h4 {
         margin-top: 2rem;
         margin-bottom: 2.5rem;
+        
+        color: #000;
 
             
-        &.dark-theme {
+        .dark-theme & {
             color: $secondary-white;
-        }
-
-        &.light-theme {
-            color: #000;
         }
 
         @media (prefers-color-scheme: dark) {
