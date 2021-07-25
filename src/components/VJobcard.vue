@@ -2,7 +2,7 @@
     <router-link :to="`/${job.id}`" style="text-decoration: none; color: inherit">
 
         <div class="job__card--logo" :style="`background-color: ${job.logoBackground}`">
-            <img :src="require(`@/assets/images/logos/${job.logo}.svg`)" alt class="icon" />
+            <img :src="`/images/logos/${job.logo}.svg`" alt class="icon" />
         </div>
         <div class="job__card--content">
             <div class="time__stamp">
