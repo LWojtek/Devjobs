@@ -20,7 +20,14 @@
                 this.bus.$emit('darkmode', newVal);
             }
         }, 
+        created () {
+            this.bus.$on('darkmode', (on) => {
+            this.darkmode = on;
+            });
+        },
     }
+
+    
 </script>
 
 <style lang="scss" scoped>

@@ -42,10 +42,18 @@ export default {
     this.bus.$on('darkmode', (on) => {
       this.darkmode = on;
     });
+      this.darkmode = JSON.parse(localStorage.getItem('darkmode'))
     this.$store.dispatch('getJobs');
-    this.darkmode = this.$store.state.darkmode;
   },
-};
+  watch: {
+    darkmode(newVal) {
+      localStorage.setItem("darkmode", JSON.stringify(this.darkmode))      
+      this.bus.$emit('darkmode', newVal);
+
+      }, 
+    }
+  }
+
 
 </script>
 
