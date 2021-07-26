@@ -116,10 +116,12 @@ export default {
 
         .dark-theme & {
             background-color: $primary-dark-blue;
+            color: $secondary-white;
         }
 
         @media (prefers-color-scheme: dark) {
             background-color: $primary-dark-blue;
+                        color: $secondary-white;
         }
 
     }

@@ -19,7 +19,7 @@
             darkmode(newVal){
                 this.bus.$emit('darkmode', newVal);
             }
-        }
+        }, 
     }
 </script>
 

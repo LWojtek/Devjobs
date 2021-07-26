@@ -10,6 +10,7 @@ export default new Vuex.Store({
     filteredJobs: [],
     vmodal: false,
     loading: true,
+    darkmode: false,
   },
   mutations: {
     SET_JOBS(state, jobs) {

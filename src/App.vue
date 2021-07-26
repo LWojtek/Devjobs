@@ -42,7 +42,8 @@ export default {
     this.bus.$on('darkmode', (on) => {
       this.darkmode = on;
     });
-    this.$store.dispatch('getJobs')
+    this.$store.dispatch('getJobs');
+    this.darkmode = this.$store.state.darkmode;
   },
 };
 
