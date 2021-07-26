@@ -29,7 +29,8 @@ export default new Vuex.Store({
       .then(response => response.json())
       .then(data => {
         commit('SET_JOBS', data);
-      });  
+      })
+      .catch(error => console.log(error))
   }
   },
   modules: {
