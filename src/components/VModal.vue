@@ -72,10 +72,24 @@ import VCheckbox from '@/components/VCheckbox.vue';
     
     .modal {
         opacity: 1;
-        background: #fff;
         flex-basis: 80%;
         border-radius: 1rem;
         transition: 250ms;
+
+        background-color: $secondary-white;
+        color: #000;
+
+
+        @media (prefers-color-scheme: dark) {
+            background-color: $primary-dark-blue;
+            color: #fff;
+        }
+
+        .dark-theme & {
+            background-color: $primary-dark-blue;
+            color: #fff;
+        }
+            
     }
 
     .nav__searchbar--location {
@@ -84,6 +98,14 @@ import VCheckbox from '@/components/VCheckbox.vue';
         justify-content: space-between;
         padding: 2.4rem;
         border-bottom: 1px solid $secondary-light-grey;
+
+        @media (prefers-color-scheme: dark) {
+          border-bottom: 1px solid $secondary-dark-grey;
+        }
+
+        .dark-theme & {
+      border-bottom: 1px solid $secondary-dark-grey
+        }
 
         input {
             flex-basis: 90%;
@@ -96,6 +118,16 @@ import VCheckbox from '@/components/VCheckbox.vue';
             font-family: 'Kumbh Sans', sans-serif;
             font-size: 1.7rem;
             padding-top: 0.5rem;
+
+            @media (prefers-color-scheme: dark) {
+                background-color: $primary-dark-blue;
+                color: #fff;
+            }
+
+            .dark-theme & {
+                background-color: $primary-dark-blue;
+                color: #fff;
+            }
         }
     }
 

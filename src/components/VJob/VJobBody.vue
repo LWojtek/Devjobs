@@ -25,7 +25,7 @@
 
                 <ul>
                     <li v-for="(item, index) in currentJob.requirements.items" :key="index">
-                        {{ item }}}
+                        {{ item }}
                     </li>
                 </ul>
             </div>
@@ -36,7 +36,7 @@
 
                 <ol>
                     <li v-for="(item, index) in currentJob.role.items" :key="index">
-                        {{ item }}}
+                        {{ item }}
                     </li>
                 </ol>
             </div>
@@ -78,21 +78,17 @@
         @media screen and (max-width: 568px){
             padding: 2rem;
         }
-
-        &.dark-theme {
-            background-color: $primary-dark-blue;
-        }
-        &.light-theme {
-            background-color: $secondary-white;
-        }
-
+        
         @media (prefers-color-scheme: dark) {
             background-color: $primary-dark-blue;
         }
 
-        @media (prefers-color-scheme: light) {
-            background-color: $secondary-white;
+        .dark-theme & {
+            background-color: $primary-dark-blue;
         }
+
+
+
 
         >div {
             display: flex;
@@ -136,6 +132,15 @@
     p {
         color: #6E8098;
         line-height: 2.6rem;
+
+        @media (prefers-color-scheme: dark) {
+            color: $secondary-grey;
+        }
+
+        .dark-theme & {
+            color: $secondary-grey;
+        }
+
     }
 
     ul, ol {
@@ -149,10 +154,37 @@
         font-size: 1.6rem;
         padding-left: 1rem;
         line-height: 2.6rem;
+
+        @media (prefers-color-scheme: dark) {
+            color: $secondary-grey;
+        }
+
+        .dark-theme & {
+            color: $secondary-grey;
+        }
+    }
+
+    h3 {
+        
+        @media (prefers-color-scheme: dark) {
+            color: $secondary-white;
+        }
+
+        .dark-theme & {
+            color: $secondary-white;
+        }
     }
 
     h4 {
         margin-bottom: 2rem;
+
+        @media (prefers-color-scheme: dark) {
+            color: $secondary-white;
+        }
+
+        .dark-theme & {
+            color: $secondary-white;
+        }
     }
 }
 
@@ -172,9 +204,18 @@
 
     p {
         font-size: 1.4rem;
-        color: #5964E0;
+        color: $primary-violet;
         margin-top: 1rem;
         font-weight: bold;
+
+        
+        @media (prefers-color-scheme: dark) {
+            color: $primary-violet;
+        }
+
+        .dark-theme & {
+            color: $primary-violet;
+        }
     }
 
 }

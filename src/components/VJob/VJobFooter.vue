@@ -32,6 +32,14 @@
     background: #fff;
     margin-top: -7rem;
 
+        @media (prefers-color-scheme: dark) {
+            background-color: $primary-dark-blue;
+        }
+
+        .dark-theme & {
+            background-color: $primary-dark-blue;
+        }
+
     &--content {
         width: 100%;
         max-width: 73rem;
@@ -44,6 +52,15 @@
 
         h4 {
             margin-bottom: 1.5rem;
+    
+            @media (prefers-color-scheme: dark) {
+                color: $secondary-white;
+            }
+
+            .dark-theme & {
+                color: $secondary-white;
+            }
+
         }
 
         p {

@@ -1,12 +1,16 @@
 <template>
   <body :class="{'dark-theme' : darkmode}">
-    <VHeader />
-    <transition name="fade">
-        <VModal v-show="this.$store.state.vmodal"/>
-    </transition>
-    <router-view/>
+      <VHeader />
+      <transition name="fade">
+          <VModal v-show="this.$store.state.vmodal"/>
+      </transition>
+
+      <VLoader v-show="this.$store.state.loading === true" />
+
+      <router-view/>
 
   </body>
+
 </template>
 
 <script src="@/main.js"></script>
@@ -14,6 +18,7 @@
 
 import VHeader from '@/components/VHeader.vue';
 import VModal from '@/components/VModal.vue';
+import VLoader from '@/components/VLoader.vue';
 
 import { mapState } from 'vuex';
 
@@ -25,7 +30,8 @@ export default {
   },
   components: {
     VHeader,
-    VModal    
+    VModal,
+    VLoader
   },
   computed: {
     ...mapState([
@@ -36,6 +42,7 @@ export default {
     this.bus.$on('darkmode', (on) => {
       this.darkmode = on;
     });
+    this.$store.dispatch('getJobs')
   },
 };
 

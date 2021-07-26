@@ -111,27 +111,17 @@ export default {
         font-family: 'Kumbh Sans', sans-serif;
         font-size: 1.7rem;
         padding-top: 0.5rem;
+        background-color: $secondary-white;
 
-        @media (prefers-color-scheme: light) {
-            background-color: $secondary-white;
-            color: #000;
+
+        .dark-theme & {
+            background-color: $primary-dark-blue;
         }
 
         @media (prefers-color-scheme: dark) {
             background-color: $primary-dark-blue;
-            color: #fff;
         }
 
-        &.dark-theme {
-            background-color: $primary-dark-blue;
-             color: #fff;
-        }
-
-        
-        &.light-theme {
-            background-color: $secondary-white;
-            color: #000;
-        }
     }
 
     &--search,
@@ -177,21 +167,19 @@ export default {
         p {
             font-weight: bold;
             padding-top: 0.5rem;
+               color: #000;
 
-        @media (prefers-color-scheme: light) {
-            color: #000;
-        }
 
         @media (prefers-color-scheme: dark) {
             color: #fff;
         }
 
-        &.dark-theme {
-             color: #fff;
+        .dark-theme & {
+            color: #fff;
         }
 
         
-        &.light-theme {
+        .light-theme & {
             color: #000;
         }
 
@@ -210,23 +198,16 @@ export default {
 }
 
 .col {
-    background: #fff;
+       background-color: $secondary-white;
     
-    &.dark-theme {
+    .dark-theme & {
         background-color: $primary-dark-blue;
-    }
-
-    &.light-theme {
-        background-color: $secondary-white;
     }
     
     @media (prefers-color-scheme: dark) {
         background-color: $primary-dark-blue;
     }
 
-    @media (prefers-color-scheme: light) {
-        background-color: $secondary-white;
-    }
 
     @media screen and (max-width: 660px) {
         display: none;

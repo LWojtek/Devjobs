@@ -60,6 +60,15 @@
     }
 
     .logo__container {
+        border-radius: 1rem;
+
+        @media (prefers-color-scheme: dark) {
+            background-color:  $primary-dark-blue;
+        }
+
+        .dark-theme & {
+            background-color: $primary-dark-blue;
+        }
 
         @media screen and (max-width: 568px) {
             width: 100%;
@@ -107,6 +116,15 @@
         justify-content: space-between;
         align-items: center;
         padding: 4.2rem 4rem;
+        background-color: #fff;
+
+        @media (prefers-color-scheme: dark) {
+            background-color:  $primary-dark-blue;
+        }
+
+        .dark-theme & {
+            background-color: $primary-dark-blue;
+        }
 
         @media screen and (max-width: 568px) {
            flex-direction: column;
@@ -118,6 +136,14 @@
 
         h2 {
             margin-bottom: 1rem;
+
+            @media (prefers-color-scheme: dark) {
+                color: $secondary-white;
+            }
+
+            .dark-theme & {
+                color: $secondary-white;;
+            }
         }
 
         p {

@@ -46,6 +46,14 @@ export default {
     background: $secondary-light-grey;
     z-index: 0;
     border-radius: 0.5rem;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: #313743;
+      }
+
+      .dark-theme & {
+        background-color: #313743;
+      }
   
     .check {
       position: absolute;
@@ -60,6 +68,7 @@ export default {
       background-position: 50% 50%;
       display: none;
       border-radius: 0.5rem;  
+
     }
   
     .checkbox {

@@ -6,7 +6,7 @@
                     <VJobcard  class="job__card" v-for="job in filterJobs" :key="job.id" :job="job"/>
             </ul>
     
-            <div class="content__load">
+            <div class="content__load" v-show="this.$store.state.loading === false">
                 <button class="btn primary__btn--1">Load more</button>
             </div>
         </div>

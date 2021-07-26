@@ -40,9 +40,6 @@ ul li {
     list-style-type: none;
 }
 
-.dark-theme .job__card{
-
-}
 
 .job__card {
     min-height: 22.8rem;    // temp

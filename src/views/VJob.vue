@@ -1,16 +1,18 @@
 <template>
-    <div>
-        <div class="container">
 
-            <VJobHeader :currentJob="this.currentJob" />
+        <div>
+            <div class="container">
 
-            <VJobBody :currentJob="this.currentJob" />
+                <VJobHeader :currentJob="this.currentJob" />
+
+                <VJobBody :currentJob="this.currentJob" />
+
+            </div>
+
+                <VJobFooter :currentJob="this.currentJob" />
 
         </div>
 
-        <VJobFooter :currentJob="this.currentJob" />
-
-    </div>
 </template>
 
 <script>
@@ -31,7 +33,7 @@ import { mapState } from 'vuex'
         },
         data(){
             return {
-                id: parseInt(this.$route.params.jobId),
+                id: this.$route.params.jobId,
             }
         },
         computed: {
@@ -44,7 +46,7 @@ import { mapState } from 'vuex'
                 });
             },
             currentJob(){
-            return this.indexVerified[0]
+                return this.indexVerified[0]
             },
         }
     }
@@ -54,5 +56,12 @@ import { mapState } from 'vuex'
 
 @import '@/assets/scss/variables.scss';
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 
 </style>

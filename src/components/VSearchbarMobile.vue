@@ -52,33 +52,25 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
-        background: #fff;
+
         min-height: 8rem;
         max-height: 8rem;
         width: 100%;
         border-radius: 1rem;
 
-        @media (prefers-color-scheme: light) {
-            background-color: $secondary-white;
-            color: #000;
-        }
+        background-color: $secondary-white;
+        color: #000;
 
         @media (prefers-color-scheme: dark) {
             background-color: $primary-dark-blue;
             color: #fff;
         }
 
-        &.dark-theme {
+        .dark-theme & {
             background-color: $primary-dark-blue;
              color: #fff;
         }
-
         
-        &.light-theme {
-            background-color: $secondary-white;
-            color: #000;
-        }
-
         input {
             margin-left: 1rem;
             height: 100%;
@@ -89,27 +81,19 @@
             font-size: 1.7rem;
             padding-top: 0.5rem;
 
-        @media (prefers-color-scheme: light) {
             background-color: $secondary-white;
             color: #000;
-        }
 
-        @media (prefers-color-scheme: dark) {
-            background-color: $primary-dark-blue;
-            color: #fff;
-        }
 
-        &.dark-theme {
-            background-color: $primary-dark-blue;
-             color: #fff;
-        }
+            @media (prefers-color-scheme: dark) {
+                background-color: $primary-dark-blue;
+                color: #fff;
+            }
 
-        
-        &.light-theme {
-            background-color: $secondary-white;
-            color: #000;
-        }
-
+            .dark-theme & {
+                background-color: $primary-dark-blue;
+                color: #fff;
+            }
             
         }
 
