@@ -22,13 +22,13 @@ body {
     &.dark-theme {
         background-color: $primary-midnight;
     }
-    
-    &.light-theme {
-        background-color: $secondary-light-grey;
-    }
 
     @media (prefers-color-scheme: dark) {
         background-color: $primary-midnight;
+    }
+    
+    &.light-theme {
+        background-color: $secondary-light-grey;
     }
 
     @media (prefers-color-scheme: light) {

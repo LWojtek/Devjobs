@@ -22,7 +22,7 @@
   animation: rotate 2s linear infinite;
   z-index: 2;
   position: absolute;
-  top: 75%;
+  top: 50%;
   left: 50%;
   margin: -25px 0 0 -25px;
   width: 50px;

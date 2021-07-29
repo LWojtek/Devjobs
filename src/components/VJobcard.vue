@@ -57,9 +57,6 @@ ul li {
 
     background-color: $secondary-white;
 
-    @media (prefers-color-scheme: light) {
-        background-color: $secondary-white;
-    }
 
     .dark-theme & {
         background-color: $primary-dark-blue;

@@ -74,6 +74,7 @@
             width: 100%;
             height: 50px;
             margin: 0 auto;
+            border-radius: 0.8rem 0.8rem 0 0;
         }
     }
 
