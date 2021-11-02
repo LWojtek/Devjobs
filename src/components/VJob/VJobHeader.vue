@@ -50,7 +50,7 @@
         display: flex;
         box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.10);
         transform: translateY(-14rem);
-        background: #fff;
+
         border-radius: 1rem;
 
         @media screen and (max-width: 568px) {
@@ -86,7 +86,7 @@
         border-radius: 1rem 0 0 1rem;
 
         width: 14rem;
-        height: 14rem;
+        height: 100%;
 
         padding: 2.5rem 4.5rem;
 
@@ -127,8 +127,13 @@
             background-color: $primary-dark-blue;
         }
 
+        @media screen and (min-width: 568px){
+            border-radius: 0 1rem 1rem 0;
+        }
+
         @media screen and (max-width: 568px) {
            flex-direction: column;
+            border-radius: 0 0 1rem 1rem;
 
            >div {
                margin: 1.5rem 0;
